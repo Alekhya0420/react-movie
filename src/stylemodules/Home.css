@@ -1,0 +1,9 @@
+.section-one
+{
+    background-image: url('../home/banner.png');
+    height:530px;
+    background-repeat: no-repeat;
+    /*background-position: center;*/
+    background-size: 100% 100%;
+    
+}
