@@ -23,7 +23,7 @@ const Home = () => {
           <div className="row">
             <div className="col-md-12">
               <h1 className="fs-1  text-white">Discover the Best Books and Movies</h1>
-              <p className="fs-3  text-white">Books and Movies are not just stories; they are gateways to endless adventures and transformative experiences.</p>
+              <p className="fs-3  text-white">Listen Books and Movies are not just stories; they are gateways to endless adventures and transformative experiences.</p>
   <Link to="/login-page"><button type="button" className="btn btn-dark border-primary btn-lg mt-3">Discover More</button></Link>
             </div>
           </div>
