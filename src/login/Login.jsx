@@ -53,7 +53,7 @@ function Login() {
          console.log("my id is",myid)
          window.localStorage.setItem("StoreId",myid)
          alert("Successful log in")
-         navigate(`/movie-page/${myid}`);
+         navigate(`/movie-page`);
       }
 
       else

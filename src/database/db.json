@@ -5,52 +5,32 @@
       "user_mail": "Rajat@gmail.com",
       "password": "rpel123#",
       "confirm-password": "rpel123#",
-      "id": "21b",
-      "comments": {},
-      "carts": {
-        "books": [],
-        "movies": []
-      }
+      "id": "21b"
     },
     {
       "user_name": "rahim",
       "user_mail": "Rahim@gmail.com",
       "password": "alekhya",
       "confirm-password": "alekhya",
-      "id": "9d3f",
-      "comments": {
-        "7563": "wonderful",
-        "323b": "Ar-Entertainment is one if the finest for buying books"
-      },
-      "carts": {
-        "books": [],
-        "movies": []
-      }
+      "id": "9d3f"
     },
     {
       "id": "919a",
       "user_name": "Rita Das",
       "user_mail": "Rita@gmail.com",
       "password": "Rita123#",
-      "confirm-password": "Rita123#",
-      "comments": {},
-      "carts": {
-        "books": [],
-        "movies": []
-      }
+      "confirm-password": "Rita123#"
+      
     },
     {
       "id": "e35c",
       "user_name": "Ratul Das",
       "user_mail": "Ratul@gmail.com",
       "password": "Ratul123#",
-      "confirm-password": "Ratul123#",
-      "carts": {
-        "books": [],
-        "movies": []
-      }
+      "confirm-password": "Ratul123#"
     }
   ],
+  
   "movies": [
     {
       "Title": "300",

@@ -187,30 +187,6 @@ const Movies = () => {
         setSearchInput(event.target.value);
     };
 
-    const handleAddToCart = (movie) => {
-        if (!getRegInfo) return;
-
-        const updatedCarts = { ...getRegInfo.carts };
-        if (!updatedCarts.movies) {
-            updatedCarts.movies = [];
-        }
-
-        const existingMovieIndex = updatedCarts.movies.findIndex(item => item.id === movie.id);
-        if (existingMovieIndex >= 0) {
-            updatedCarts.movies[existingMovieIndex].quantity += 1; // Increase quantity if movie already exists
-        } else {
-            updatedCarts.movies.push({ ...movie, quantity: 1 }); // Add new movie with quantity 1
-        }
-
-        axios.patch(`${res_url}/${userId}`, { carts: updatedCarts })
-            .then((res) => {
-                setData(res.data);
-            })
-            .catch((error) => {
-                console.error('There was an error updating the cart!', error);
-            });
-    };
-
     const handleLogOut = () => {
         localStorage.clear();
         navigate('/login-page');
@@ -233,7 +209,6 @@ const Movies = () => {
                     </Link>
                     <Button className='btn btn-danger' onClick={handleLogOut}>Logout</Button>
                 </div>
-                <Link to="/add-to-cart">See Orders</Link>
                 <Form.Control
                     type="text"
                     placeholder="Search movies..."
@@ -270,13 +245,17 @@ const Movies = () => {
                                         <Card.Text>
                                             <strong>Price:</strong> ${movie.price}
                                         </Card.Text>
-                                        <Button variant="primary" onClick={() => handleAddToCart(movie)}>
-                                            Add to Cart
-                                        </Button>
+                                        
+                                        <Link to={`/movie-page/${movie.id}`}>
+                                        <button className='btn btn-danger'>know more</button>
+                                        </Link>
+                            
                                     </Card.Body>
                                     <Card.Footer className="bg-white text-dark">
                                         <small>Released: {movie.Year}</small>
                                     </Card.Footer>
+
+                                  
                                 </Card>
                             </Col>
                         ))

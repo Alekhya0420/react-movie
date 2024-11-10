@@ -50,9 +50,8 @@ const Login = lazy(() => import('../login/Login'));
 const Movies = lazy(() => import('../movies/Movies'));
 const Books = lazy(() => import('../movies/Books'));
 const Forgot = lazy(() => import('../ForgotPassWord/Forgot'));
-const AddToCart = lazy(() => import('../movies/AddToCart'));
 const Footer = lazy(() => import('../layout/Footer'));
-const ProductDetails = lazy(() => import('../movies/ProductDetails'));
+const MovieDetails = lazy(() => import('../movies/MovieDetails'));
 const BookDetail = lazy(() => import('../movies/BookDetail'));
 
 function Routing() {
@@ -62,27 +61,25 @@ function Routing() {
         <Header/>
       <Routes>
         
-    <Route path="/home-page" element={<Home />} />
-    <Route path="/" element={<Suspense fallback={<div>Loading...</div>}><Registration/></Suspense>} />        
+  
+<Route path="/" element={<Suspense fallback={<div>Loading...</div>}><Registration/></Suspense>}/>        
     <Route path="/Book-info" element={<Suspense fallback={<div>Loading...</div>}><Books /></Suspense>} />
 
     
-  <Route path="/login-page" element={<Suspense fallback={<div>Loading...</div>}><Login /></Suspense>} />
+  <Route path="/login-page" element={<Suspense fallback={<div>Loading...</div>}><Login /></Suspense>}/>
    
 
     <Route element={<ProtectedRoutes/>}>
-    <Route path="/movie-page/:id" element={<Suspense fallback={<div>Loading...</div>}><Movies /></Suspense>} />
+<Route path="/movie-page" element={<Suspense fallback={<div>Loading...</div>}><Movies/></Suspense>}/>
     </Route>
     
     <Route path="/forgot-password" element={<Suspense fallback={<div>Loading...</div>}><Forgot /></Suspense>} />
-    <Route path="/add-to-cart" element={<Suspense fallback={<div>Loading...</div>}><AddToCart /></Suspense>} />
     <Route path="/home-page" element={<Home />} />
-    <Route path="/add-to-cart/:myprod" element={<Suspense fallback={<div>Loading...</div>}><ProductDetails /></Suspense>} />
+    <Route path="/movie-page/:myprod" element={<Suspense fallback={<div>Loading...</div>}><MovieDetails/></Suspense>} />
     <Route path="/book-info/:mybook" element={<Suspense fallback={<div>Loading...</div>}><BookDetail /></Suspense>} />
       </Routes>
-      <Suspense fallback={<div>Loading...</div>}>
+     
         <Footer />
-      </Suspense>
     </Router>
   );
 }

@@ -4,7 +4,7 @@ import { base_url, end_point } from '../api/api';
 import { Container, Button, Nav, Card, Row, Col } from 'react-bootstrap';
 import { useParams, Link } from 'react-router-dom';
 
-function ProductDetails() {
+function MovieDetails() {
     const [movie, setMovie] = useState({});
     const [userinfo, setUserInfo] = useState({});
     const { myprod } = useParams();
@@ -39,7 +39,7 @@ function ProductDetails() {
 
     return (
         <div className='d-flex'>
-            <Nav className="bg-dark flex-column p-3" style={{ width: '250px', height: '100vh' }}>
+            <Nav className="bg-black flex-column p-3" style={{ width: '250px', height: '100vh' }}>
                 <i className="ri-profile-fill fs-1 text-danger mb-3"></i>
                 <Nav.Item className="mb-3">
                     <h4 className="text-white">User Info</h4>
@@ -97,5 +97,5 @@ function ProductDetails() {
     );
 }
 
-export default ProductDetails;
+export default MovieDetails;
 

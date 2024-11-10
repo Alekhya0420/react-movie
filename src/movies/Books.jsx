@@ -38,33 +38,7 @@ function Books() {
         setSearchInput(event.target.value);
     };
 
-    const handleAddToCart = (book) => {
-        if (!getRegInfo) return;
-
-        const updatedCarts = {...getRegInfo.carts};
-        if (!updatedCarts.books) 
-        {
-            updatedCarts.books = [];
-        }
-
-        const existingBookIndex = updatedCarts.books.findIndex(item => item.id === book.id);
-        if (existingBookIndex !== -1) 
-        {
-            updatedCarts.books[existingBookIndex].quantity += 1;
-        } 
-        else 
-        {
-            updatedCarts.books.push({...book,quantity:1}); 
-        }
-
-        axios.patch(`${res_url}/${userId}`, { carts: updatedCarts })
-            .then((res) => {
-                setData(res.data);
-            })
-            .catch((error) => {
-                console.error('There was an error updating the cart!', error);
-            });
-    };
+   
 
     const handleLogOut = () => {
         localStorage.clear();
@@ -75,12 +49,14 @@ console.log("reg info is",getRegInfo);
         <div className="d-flex">
             <Nav className="bg-black flex-column" style={{ width: 'auto', height: 'auto', marginBottom: '20px' }}>
                 <i className="ri-profile-fill fs-1 text-danger mb-3"></i>
+                <div>
                 <h4 className="text-white mb-3">User Info</h4>
+                </div>
                 <div className="text-white mb-3">
                     <p><strong>Name:</strong> {getRegInfo && getRegInfo.user_name ? getRegInfo.user_name.charAt(0).toUpperCase() + getRegInfo.user_name.slice(1) : ""}</p>
                     <p><strong>Email:</strong> {getRegInfo ? getRegInfo.user_mail : ""}</p>
                     <Link to="/Book-info" className="text-primary"><p><strong>Books</strong></p></Link>
-                    <Link to={`/movie-page/${getRegInfo ? getRegInfo.id : ""}`} className="text-primary"><p><strong>Movies</strong></p></Link>
+                    <Link to={`/movie-page`} className="text-primary"><p><strong>Movies</strong></p></Link>
                     <Link to="/forgot-password">
                         <Button variant="dark" className='border-primary px-1 mb-3' type="submit">
                             Forgot-password
@@ -88,7 +64,7 @@ console.log("reg info is",getRegInfo);
                     </Link>
                     <Button className='btn btn-danger' onClick={handleLogOut}>Logout</Button>
                 </div>
-                <Link to="/add-to-cart">See Orders</Link>
+               
                 <Form.Control
                     type="text"
                     placeholder="Search books..."
@@ -123,9 +99,10 @@ console.log("reg info is",getRegInfo);
                                         <Card.Text>
                                             <strong>Year:</strong> {book.year}
                                         </Card.Text>
-                                        <Button variant="primary" onClick={() => handleAddToCart(book)}>
-                                            Add to Cart
-                                        </Button>
+                                        <Link to={`/Book-info/${book.id}`} className='btn btn-danger'>
+                                         Details
+                                        </Link>
+
                                     </Card.Body>
                                     <Card.Footer className="bg-white text-dark">
                                         <small>Released: {book.year}</small>
